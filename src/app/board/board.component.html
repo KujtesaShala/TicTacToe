@@ -1,0 +1,111 @@
+
+    <h1 style="font-family: monoton; text-align: center; margin: 4px 0; color: #2256A2; opacity: 100%;  font-size: 100px;">Tic Tac Toe</h1>
+
+    <div *ngIf="!gameStarted" class="field d-flex justify-content-center" style="width: 100%;">
+        <img class="logo mt-5" src="/assets/logo.png" alt="logo">
+    </div>
+    <div *ngIf="!gameStarted" class="field d-flex justify-content-center mt-5" style="width: 100%;">
+        <button (click)="newGame()" type="button" class="btn start-game-button" style="font-family: rowdies; color: white; font-size: 25px;">Start game now</button>
+    </div>
+   
+    <div  *ngIf="gameStarted" class="row">
+        <div class="col">
+            <div class="score">
+                <div class="players player-one" style="font-family: monoton; font-size: 30px; text-align: center;color: #FDD053;">
+                    <p>Player  1</p>
+                </div>
+                <table class="table" style="font-family: rowdies; font-size: 20px; color:white;">
+                    <th>
+                       Score 
+                    </th>
+                    <tr *ngFor="let score of xScore;">
+                        <td><p>{{score}}</p></td> 
+                    </tr>
+                    <tr>
+                        <td><img class="line" src="/assets/yellowline.png"></td>
+                    </tr>
+                    <tr>
+                        <td><p> Total Score: {{xTotalScore}}</p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+            <h1 *ngIf="gameStarted" style="font-family: rowdies; text-align: center; margin: 15px 0;" > 
+                <span *ngIf="player == 'X'" style="color: #FDD053;">Current player: <img  class="x-icon"  src="/assets/Xlogo.png" alt="x"></span>
+                <span *ngIf="player == 'O'" style="color: #E02E2E;">Current player: <img  class="o-icon"  src="/assets/Ologo.png" alt="o"></span>
+            </h1>
+            <div class="container">
+                <main>
+                    <app-square *ngFor="let val of squares; let i = index"
+                        [value]="val"
+                        (click)="makeMove(i)"
+                        > 
+                    </app-square>
+                </main>
+            </div>
+            <div  class="field d-flex justify-content-center mt-5" style="width: 100%;" >
+                <button (click)="newGame()" class="btn-1" ><img src="/assets/restartgame.png" alt="Restart" style="width: 60px;"></button><span  style="font-family: rowdies; color: white; padding-left: 10px; padding-top: 5px; font-size: 35px;" >restart</span>
+            </div>
+        </div>
+        <div class="col">
+            <div class="score">
+                <div class="players player-two" style="font-family: monoton; font-size: 30px; text-align: left; color: #E02E2E;">
+                    <p>Player  2</p>
+                </div>
+                <table class="table" style="font-family: rowdies; font-size: 20px; color:white;">
+                    <th>
+                       Score 
+                    </th>
+                    <tr *ngFor="let score of oScore;">
+                        <td><p>{{score}}</p></td> 
+                    </tr>
+                    <tr>
+                        <td><img class="line" src="/assets/redline.png"></td>
+                    </tr>
+                    <tr>
+                        <td><p> Total Score: {{oTotalScore}}</p></td>
+                    </tr>
+                </table>
+            </div>   
+        </div>
+   
+<!--    
+        <div class="row">
+            <div class="col">
+                <span class="points" style="background-color: #00757F;"><img class="x-icon" src="/assets/Xlogo.png" alt="x">: 0</span>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col"> 
+            </div>
+        </div>
+            <div  class="field d-flex justify-content-center mt-2" style="width: 100%;" >
+                <button (click)="newGame()" class="btn-1" ><img src="/assets/restartgame.png" alt="Restart" style="width: 60px;"></button><span  style="font-family: rowdies; color: white; padding-left: 10px; padding-top: 5px; font-size: 35px;" >restart</span>
+            </div>
+        </div> -->
+   
+    <ng-template #content let-modal>
+	    <div class="modal-body" style="background-color:#3B393C">
+            <div class="row">
+                <div *ngIf="winner == 'X' || Draw" class="col-2"><img class="x-icon rot mt-5" src="/assets/Xlogo.png" alt="x"></div>
+                <div *ngIf="winner == 'O'" class="col-2"><img class="x-icon mt-5" src="/assets/Ologo.png" alt="x"></div>
+                <div class="col-8">
+                    <h2 *ngIf="winner == 'X'" style="font-family: monoton; text-align: center; margin: 15px 0; color: #FDD053;"> Player {{winner}} <br >won the game!</h2>
+                    <h2 *ngIf="winner == 'O'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: #E02E2E;"> Player {{winner}} <br >won the game!</h2>
+
+            <h2 *ngIf="Draw"  style="font-family: monoton; text-align: center; margin: 15px 0; color: white;"> Draw!</h2>
+                </div>
+                <div *ngIf="winner == 'X'" class="col-2"><img class="x-icon rot" src="/assets/Xlogo.png" alt="x"></div>
+                <div *ngIf="winner == 'O' || Draw" class="col-2"><img class="x-icon" src="/assets/Ologo.png" alt="x"></div>
+            </div>
+
+            <input type="email" class="form-control" placeholder="Email" style="font-family: rowdies;" >
+            <label for="exampleInputEmail1" class="form-label" style="font-family: rowdies; color:rgb(160, 159, 159)">*if you want to submit your results</label>
+            <br>
+
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" style="font-family: rowdies;">Play Again</button>
+            <button type="button" class="btn btn-outline-dark submit" (click)="modal.close('Save click')" style="font-family: rowdies;"><a href="mailto:kujtesa.shala22@gmail.com?subject=Score&cc=kujtesa.shala22@gmail.com&body=Player%20X`s%20score:%20{{xTotalScore}},%20Player%20O`s%20score:%20{{oTotalScore}}" class="email" style="text-decoration:none; color: #262529;" >Submit</a></button>
+	    </div>
+    </ng-template>
+

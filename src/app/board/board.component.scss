@@ -1,0 +1,83 @@
+main{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 0px;
+    // border: 1px solid rgb(252, 251, 251);
+}
+app-square {
+    // border: 1px gray solid;
+    border: 1px solid #00757F;
+    height: 200px;
+}
+.logo{
+    width:  600px;
+}
+.btn-1{
+    background-color: #00757F;
+    border-color: #00757F;
+    border-radius: 10px;
+    opacity: 55%;
+    width: 70px;
+    height: 70px;
+}
+
+.btn.start-game-button{
+    background-color: #1B427A;
+    width: 30%;
+}
+.x-icon{
+    width: 35px;
+    height: 35px;
+    .rot{
+        rotate: 30deg ;
+    }
+}
+.o-icon{
+    width: 35px;
+    height: 35px;
+}
+.points{
+    width: 60px;
+    height: 60px;
+}
+.form-control{
+    background-color: #00757F;
+    width: 80%;
+}
+.btn.btn-outline-dark{
+    background-color: #00757F;
+}
+.btn.btn-outline-dark.submit{
+    padding-left: 20px;
+}
+.table{
+    background-color: #2b2b2b ;
+    width: 60%;
+    height: 40%;
+    border-radius: 20px;
+    padding-left: 10px;
+    // align-items: center;
+    // justify-content: center;
+    
+    th{
+        text-align:left;
+        padding: 30px;
+    }
+    tr{
+        text-align: right;
+    }
+    td{
+        padding-right: 30px;
+        height: 50px;
+    }
+   
+}
+.score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+// .email:hover{
+//     color: white;
+// }
