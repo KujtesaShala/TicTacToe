@@ -29,6 +29,7 @@ export class BoardComponent implements OnInit {
   oTotalScore: number = 0;
   gameEnded : boolean = false;
   closeResult = '';
+  gameWinner: string = '';
 
   @ViewChild('content', { static: true, read: TemplateRef }) content!: TemplateRef<any>;
   
@@ -45,12 +46,12 @@ export class BoardComponent implements OnInit {
     this.xIsNext = true;
     this.Draw = false;
 
-    if(this.gameNumber === 10){
+    if(this.gameNumber <= 10){
       
       this.xScore.forEach((xScore) =>{
         if(xScore === '1') {
           this.xTotalScore++;
-          console.log(this.xTotalScore);
+          // console.log(this.xTotalScore);
         }
       })
        
@@ -59,10 +60,33 @@ export class BoardComponent implements OnInit {
           this.oTotalScore++;
         }
       })
+    }else {
+      this.gameNumber = 0;
+      this.xScore = [];
+      this.oScore = [];
+      this.xTotalScore = 0;
+      this.oTotalScore = 0;
     }
     this.count = 0;
     this.gameNumber++;
+ 
+    if(this.gameNumber === 11) {
+  
+      if(this.xTotalScore != this.oTotalScore){
+
+        if(this.xTotalScore > this.oTotalScore) 
+          this.gameWinner = 'X';
+          else
+          this.gameWinner = 'O';
+      } 
+      else
+      this.gameWinner = 'Draw';
+
+      this.open();
+    }
+      
   }
+    
 
   get player() {
     return this.xIsNext ? "X" : 'O';
@@ -91,7 +115,7 @@ export class BoardComponent implements OnInit {
       result.isDraw = true;
       this.Draw = result.isDraw;
       this.gameEnded = true;
-      this.open();
+      // this.open();
     }
     if (this.winner)
     {
@@ -99,7 +123,7 @@ export class BoardComponent implements OnInit {
       this.Draw = false;
       result.winner = this.winner;
       this.gameEnded = true;
-      this.open();
+      // this.open();
     }
     this.results.push(result)
 
