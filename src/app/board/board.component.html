@@ -1,15 +1,15 @@
 
-    <h1 style="font-family: monoton; text-align: center; margin: 4px 0; color: #2256A2; opacity: 100%;  font-size: 100px;">Tic Tac Toe</h1>
+    <h1 class="title">Tic Tac Toe</h1>
 
-    <div *ngIf="!gameStarted" class="field d-flex justify-content-center" style="width: 100%;">
+    <div *ngIf="!gameStarted" class="field d-flex justify-content-center" >
         <img class="logo mt-5" src="/assets/logo.png" alt="logo">
     </div>
-    <div *ngIf="!gameStarted" class="field d-flex justify-content-center mt-5" style="width: 100%;">
+    <div *ngIf="!gameStarted" class="field d-flex justify-content-center mt-5" >
         <button (click)="newGame()" type="button" class="btn start-game-button" style="font-family: rowdies; color: white; font-size: 25px;">Start game now</button>
     </div>
    
     <div  *ngIf="gameStarted" class="row">
-        <div class="col">
+        <div class="col-lg-4 md-10">
             <div class="score">
                 <div class="players player-one" style="font-family: monoton; font-size: 30px; text-align: center;color: #FDD053;">
                     <p>Player  1</p>
@@ -30,7 +30,7 @@
                 </table>
             </div>
         </div>
-        <div class="col">
+        <div class="col-lg-4 md-10">
             <div class="mid">
                 <h1 *ngIf="gameStarted" style="font-family: rowdies; text-align: center; margin: 15px 0;" > 
                     <span *ngIf="player == 'X'" style="color: #FDD053;">Current player: <img  class="x-icon"  src="/assets/Xlogo.png" alt="x"></span>
@@ -51,7 +51,7 @@
             </div>
             
         </div>
-        <div class="col">
+        <div class="col-lg-4 md-10">
             <div class="score">
                 <div class="players player-two" style="font-family: monoton; font-size: 30px; text-align: left; color: #E02E2E;">
                     <p>Player  2</p>
@@ -93,15 +93,15 @@
             <button type="button" class="btn-close" style="float: right;" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             <div class="row">
                 <div *ngIf="gameWinner == 'X' || 'Draw'" class="col-2"><img class="x-icon rot mt-5" src="/assets/Xlogo.png" alt="x"></div>
-                <div *ngIf="gameWinner == 'O'" class="col-2"><img class="x-icon mt-5" src="/assets/Ologo.png" alt="x"></div>
+                <div *ngIf="gameWinner == 'O'" class="col-2"><img class="x-icon mt-5" src="/assets/Ologo.png" alt="o"></div>
                 <div class="col-8">
                     <h2 *ngIf="gameWinner == 'X'" style="font-family: monoton; text-align: center; margin: 15px 0; color: #FDD053;"> Player {{gameWinner}} <br >won the game!</h2>
                     <h2 *ngIf="gameWinner == 'O'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: #E02E2E;"> Player {{gameWinner}} <br >won the game!</h2>
 
-            <h2 *ngIf="gameWinner == 'Draw'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: white;"> Draw!</h2>
+                    <h2 *ngIf="gameWinner == 'Draw'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: white;"> Draw!</h2>
                 </div>
                 <div *ngIf="gameWinner == 'X'" class="col-2"><img class="x-icon rot" src="/assets/Xlogo.png" alt="x"></div>
-                <div *ngIf="gameWinner == 'O' || 'Draw'" class="col-2"><img class="x-icon" src="/assets/Ologo.png" alt="x"></div>
+                <div *ngIf="gameWinner == 'O' || 'Draw'" class="col-2"><img class="x-icon" src="/assets/Ologo.png" alt="o"></div>
             </div>
 
             <input type="email" class="form-control" placeholder="Email" style="font-family: rowdies;" >

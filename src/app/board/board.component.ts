@@ -48,18 +48,25 @@ export class BoardComponent implements OnInit {
 
     if(this.gameNumber <= 10){
       
-      this.xScore.forEach((xScore) =>{
-        if(xScore === '1') {
-          this.xTotalScore++;
-          // console.log(this.xTotalScore);
-        }
-      })
+      // this.xScore.forEach((xScore) =>{
+      //   if(xScore === '1') {
+      //     this.xTotalScore++;
+      //     // console.log(this.xTotalScore);
+      //   }
+      // })
+
+      if((this.xScore[this.xScore.length-1]) === '1')
+      this.xTotalScore++;
        
-      this.oScore.forEach((oScore) =>{
-        if(oScore === '1') {
-          this.oTotalScore++;
-        }
-      })
+      // this.oScore.forEach((oScore) =>{
+      //   if(oScore === '1') {
+      //     this.oTotalScore++;
+      //   }
+      // })
+      
+      if((this.oScore[this.oScore.length-1]) === '1')
+      this.oTotalScore++;
+
     }else {
       this.gameNumber = 0;
       this.xScore = [];

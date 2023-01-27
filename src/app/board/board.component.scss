@@ -2,6 +2,7 @@ main{
     display: grid;
     grid-template-columns: 200px 200px 200px;
     grid-gap: 0px;
+    justify-content: center;
     // border: 1px solid rgb(252, 251, 251);
 }
 app-square {
@@ -9,8 +10,19 @@ app-square {
     border: 1px solid #00757F;
     height: 200px;
 }
+
+.title{
+    font-family: monoton; 
+    font-size: clamp(3rem, 1rem + 10vw, 7rem);
+    color: #2256A2;
+    text-align: center;
+    margin: 4px 0;
+    opacity: 100%;
+}
+
 .logo{
-    width:  600px;
+    // max-width:  600px;
+    width: clamp(250px, 70%, 600px);
 }
 .btn-1{
     background-color: #00757F;
@@ -23,14 +35,14 @@ app-square {
 
 .btn.start-game-button{
     background-color: #1B427A;
-    width: 30%;
+    width: clamp(250px, 70%, 600px);
 }
 .x-icon{
     width: 35px;
     height: 35px;
-    .rot{
-        rotate: 30deg ;
-    }
+    // .rot{
+    //     rotate: 30deg ;
+    // }
 }
 .o-icon{
     width: 35px;
@@ -55,7 +67,7 @@ app-square {
     width: 60%;
     height: 40%;
     border-radius: 20px;
-    padding-left: 10px;
+    // padding-left: 10px;
     // align-items: center;
     // justify-content: center;
     
