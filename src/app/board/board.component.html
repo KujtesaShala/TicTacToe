@@ -36,7 +36,7 @@
                     <span *ngIf="player == 'X'" style="color: #FDD053;">Current player: <img  class="x-icon"  src="/assets/Xlogo.png" alt="x"></span>
                     <span *ngIf="player == 'O'" style="color: #E02E2E;">Current player: <img  class="o-icon"  src="/assets/Ologo.png" alt="o"></span>
                 </h1>
-                <div class="container">
+                <div class="container" id="squares">
                     <main>
                         <app-square *ngFor="let val of squares; let i = index"
                             [value]="val"
@@ -93,7 +93,7 @@
             <button type="button" class="btn-close" style="float: right;" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
             <div class="row">
                 <div *ngIf="gameWinner == 'X' || 'Draw'" class="col-2"><img class="x-icon rot mt-5" src="/assets/Xlogo.png" alt="x"></div>
-                <div *ngIf="gameWinner == 'O'" class="col-2"><img class="x-icon mt-5" src="/assets/Ologo.png" alt="o"></div>
+                <div *ngIf="gameWinner == 'O'" class="col-2"><img class="o-icon" src="/assets/Ologo.png" alt="o"></div>
                 <div class="col-8">
                     <h2 *ngIf="gameWinner == 'X'" style="font-family: monoton; text-align: center; margin: 15px 0; color: #FDD053;"> Player {{gameWinner}} <br >won the game!</h2>
                     <h2 *ngIf="gameWinner == 'O'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: #E02E2E;"> Player {{gameWinner}} <br >won the game!</h2>
@@ -101,7 +101,7 @@
                     <h2 *ngIf="gameWinner == 'Draw'"  style="font-family: monoton; text-align: center; margin: 15px 0; color: white;"> Draw!</h2>
                 </div>
                 <div *ngIf="gameWinner == 'X'" class="col-2"><img class="x-icon rot" src="/assets/Xlogo.png" alt="x"></div>
-                <div *ngIf="gameWinner == 'O' || 'Draw'" class="col-2"><img class="x-icon" src="/assets/Ologo.png" alt="o"></div>
+                <div *ngIf="gameWinner == 'O' || 'Draw'" class="col-2"><img class="o-icon" src="/assets/Ologo.png" alt="o"></div>
             </div>
 
             <input type="email" class="form-control" placeholder="Email" style="font-family: rowdies;" >
